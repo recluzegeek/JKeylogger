@@ -56,6 +56,7 @@ public class Main implements NativeKeyListener {
         // print only when there is a special key
         if (!(keyCode >= 2 && keyCode <= 11 || keyCode >= 16 && keyCode <= 25 || keyCode >= 30 && keyCode <= 38 || keyCode >= 44 && keyCode <= 50)) {
             System.out.println("Key Pressed : " + NativeKeyEvent.getKeyText(nativeKeyEvent.getKeyCode()));
+            stack.push(NativeKeyEvent.getKeyText(keyCode));
             if (keyCode != NativeKeyEvent.VC_SPACE) {
                 for (char c : NativeKeyEvent.getKeyText(keyCode).toCharArray()) {
                     queue.enqueue(c);
@@ -70,6 +71,7 @@ public class Main implements NativeKeyListener {
             word.setLength(0);
         }
     }
+
 
     // raw code is the asci of the character being typed
     @Override

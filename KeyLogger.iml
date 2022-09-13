@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jnativehook" level="project" />
+    <orderEntry type="library" name="jna-platform-jpms-5.12.1" level="project" />
+    <orderEntry type="library" name="jna-jpms-5.12.1" level="project" />
   </component>
 </module>
