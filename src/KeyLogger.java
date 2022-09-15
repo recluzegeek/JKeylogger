@@ -6,7 +6,6 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
  * VC_A = means virtual code for A in the library
  * raw-code = asci of the chars
  * */
-import java.io.*;
 import java.util.Stack;
 
 public class KeyLogger implements NativeKeyListener {

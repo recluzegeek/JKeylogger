@@ -4,41 +4,50 @@ import com.sun.jna.platform.win32.WinDef.HWND;
 import com.sun.jna.platform.win32.WinNT.HANDLE;
 import com.sun.jna.ptr.IntByReference;
 
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+
 
 public class EnumerateWindows {
-    public static void main(String[] args) throws Exception {
-        HWND prevFg = null;
-        HWND fg;
+    private static HashMap<Integer, String> time = new HashMap<>();
+    private static int numOfApplications = 0;
 
-        while (true) {
-            Thread.sleep(200);
-
-            fg = User32.INSTANCE.GetForegroundWindow();
-            if (fg == null) {
-                System.out.println("fg is null");
-                continue;
-            }
-            // don't print the name if it's still the same window as previously
-            if (fg.equals(prevFg)) {
-                continue;
-            }
-
-            String fgImageName = getImageName(fg);
-            if (fgImageName == null) {
-                System.out.println("Failed to get the image name!");
-            } else {
-                System.out.println("\t*********************************************************************************************************");
-                char[] buffer = new char[1024 * 2];
-                User32.INSTANCE.GetWindowText(fg, buffer, 1024);
-                System.out.println("Foreground Windows Title: " + Native.toString(buffer));
-                System.out.println("Focused Application Path: " + fgImageName);
-            }
-
-            prevFg = fg;
-        }
+    public static HashMap<Integer, String> getTime() {
+        return time;
     }
 
-    private static String getImageName(HWND window) {
+
+    public void run() throws Exception {
+        String appDetail;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss a z");
+
+        HWND foregroundWindow = User32.INSTANCE.GetForegroundWindow();
+        if (foregroundWindow == null) {
+            return;
+        }
+        // don't print the name if it's still the same window as previously
+        if (foregroundWindow.equals(MainDriver.prevFg)) {
+            return;
+        }
+
+        String fgImageName = getImageName(foregroundWindow);
+        if (fgImageName == null) {
+            System.out.println("Failed to get the image name!");
+        } else {
+            System.out.println("\t*********************************************************************************************************");
+            char[] buffer = new char[1024 * 2];
+            User32.INSTANCE.GetWindowText(foregroundWindow, buffer, 1024);
+            appDetail = "\nDate/Time : " + ZonedDateTime.now().format(dtf) + "\nForeground Windows Title : " + Native.toString(buffer) + "\nApplication Path " + fgImageName + "\n";
+            numOfApplications++;
+            time.put(numOfApplications, appDetail);
+        }
+
+        MainDriver.prevFg = foregroundWindow;
+        System.out.println(getTime());
+    }
+
+    private String getImageName(HWND window) {
         // Get the process ID of the window
         IntByReference procId = new IntByReference();
         User32.INSTANCE.GetWindowThreadProcessId(window, procId);
