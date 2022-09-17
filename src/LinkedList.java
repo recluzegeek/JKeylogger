@@ -38,12 +38,8 @@ public class LinkedList<T> {
                 dataString.append("\n");
             }
             dataString.append(current.data);
-//            if (current.next != null) {
-//                dataString.append(" ");
-//            }
             current = current.next;
         }
-//        dataString.append("]");
         return dataString.toString();
     }
 

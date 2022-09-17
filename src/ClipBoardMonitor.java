@@ -15,11 +15,6 @@ class ClipBoardMonitor implements Runnable {
 
     public void run() {
         try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            return;
-        }
-        try {
             if (sysClip.isDataFlavorAvailable(DataFlavor.stringFlavor)) {
                 try {
                     String content = (String) sysClip.getData(DataFlavor.stringFlavor);

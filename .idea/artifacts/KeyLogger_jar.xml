@@ -3,7 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/KeyLogger_jar</output-path>
     <root id="archive" name="KeyLogger.jar">
       <element id="module-output" name="KeyLogger" />
+      <element id="extracted-dir" path="D:/jna-jpms-5.12.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../HookLibrary/jnativehook/out/artifacts/jnativehook_jar/jnativehook.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="D:/jna-platform-jpms-5.12.1.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

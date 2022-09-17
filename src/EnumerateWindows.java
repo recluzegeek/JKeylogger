@@ -10,11 +10,11 @@ import java.util.HashMap;
 
 
 public class EnumerateWindows {
-    private static HashMap<Integer, String> time = new HashMap<>();
+    private static HashMap<Integer, String> hashMap = new HashMap<>();
     private static int numOfApplications = 0;
 
-    public static HashMap<Integer, String> getTime() {
-        return time;
+    public static HashMap<Integer, String> getHashMap() {
+        return hashMap;
     }
 
 
@@ -28,6 +28,7 @@ public class EnumerateWindows {
         }
         // don't print the name if it's still the same window as previously
         if (foregroundWindow.equals(MainDriver.prevFg)) {
+//            MainDriver.focusedLoosed = false;
             return;
         }
 
@@ -38,13 +39,18 @@ public class EnumerateWindows {
             System.out.println("\t*********************************************************************************************************");
             char[] buffer = new char[1024 * 2];
             User32.INSTANCE.GetWindowText(foregroundWindow, buffer, 1024);
-            appDetail = "\nDate/Time : " + ZonedDateTime.now().format(dtf) + "\nForeground Windows Title : " + Native.toString(buffer) + "\nApplication Path " + fgImageName + "\n";
-            numOfApplications++;
-            time.put(numOfApplications, appDetail);
+            /*
+            * Date/Time : 15/09/2022 07:57:09 AM CEST
+              Foreground Windows Title : Untitled - Notepad
+              Application Path C:\Windows\System32\notepad.exe
+              * "\nDate/Time : " + ZonedDateTime.now().format(dtf) + "\nForeground Windows Title : " + Native.toString(buffer) + "\nApplication Path " + fgImageName + "\n";
+            * */
+            appDetail = ZonedDateTime.now().format(dtf) + ", " + Native.toString(buffer) + ", " + fgImageName;
+            hashMap.put(++numOfApplications, appDetail);
         }
 
         MainDriver.prevFg = foregroundWindow;
-        System.out.println(getTime());
+        System.out.println(getHashMap());
     }
 
     private String getImageName(HWND window) {

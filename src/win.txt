@@ -1,10 +1,20 @@
-no[Enter]my name is salman and am doing testign on [Shift]IAs nad [Control][BkSp][BkSp][Shift]AI and on specifications[Enter]
-[Enter][Control]a[BkSp][Alt] c[Alt][Alt][Alt][Alt][Alt][Alt][Alt][Enter][Left][Control][Shift][Left][Shift]Driver[Shift]Cl[Control][BkSp][Shift]Main[Shift]Driver[F6][F6][Shift][F6][Shift][Shift][Shift][Shift][Shift][F6][Shift][Shift][Right][Shift]Driver[Enter][Control][Enter]mia[Control][BkSp]main[Enter][BkSp][Shift]Key[Down][Down][Enter] ke[Enter] [Equals] new [Enter][Semicolon][Enter][Shift]CKu[Control][BkSp][Shift]CLi[Down][Enter] cl[Tab][Enter][Shift]EN[Enter] [Tab][Control][Left][Left][Left][End][Enter]
-[Enter]
-[Enter]
-[Enter][Up][Up][Up]Back [Slash][BkSp]
-[Enter]pri[Enter]sta[Enter]fina[Enter]int time[Shift]Duration[Control][BkSp]ti[Control][Control][Control][BkSp]interval[Shift]Duratoin[BkSp][BkSp][BkSp]ion [Equals] 10[Semicolon][Control][BkSp][Control][Right][Right][Right][Shift][Right][Right][Right][Right][BkSp][Control][Control][Left][Shift][Left]start[Shift]Hook[Enter]
-[Enter]ky[BkSp]ey[Enter][Period]sta[Enter][Shift]File[Shift]Writing[Enter]
-[Enter][Control][Control]x[End][Enter][Control]v[Control][Control][Control][Control][Control][Control][Control][Control][Control][Control][Control][Control][Slash]git stats[BkSp]us[Enter]git add[Period][BkSp] [Period]
-[Enter]git commit [Minus]m Unknown keyCode: 0xe36[Quote][Quote][Left][Shift]Started sepratign g[BkSp][BkSp][BkSp][BkSp][BkSp]n[BkSp]in [BkSp]g files[Period][Period][Period]start[BkSp][BkSp][BkSp][BkSp][BkSp]packaging the [BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp][BkSp]towards teh en[BkSp][BkSp][BkSp][BkSp][BkSp]he end of the file[Enter][Control][Left][Shift]Ke[Enter][Period]Escape[Control][Control][Control][Control][Control][Control][Control][Control][Control][Control][Control]l[Enter]
-[Enter][Shift][Shift]voi[Control][BkSp][Shift]String formatingUnknown keyCode: 0xe36([Shift]String str[Right]Unknown keyCode: 0xe36Unknown keyCode: 0xe36Open [Bracket][Enter][Control][Shift]Itre[Enter]nu[Enter][Semicolon][Slash][Slash] n[BkSp]my name is alam[Control][BkSp]salman and am h[BkSp]ding [Control][BkSp]doing testring[BkSp][BkSp][BkSp][BkSp]ing upon my program[Shift][Shift][Shift][Shift][Shift][Home][BkSp]
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+  Index |      Date/Time              |        Source            |   Title/Description              | Values                                             | Clipboard            |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      1 | 17/09/2022 06:31:49 AM CEST | idea64.exe               | KeyLogger – Fi...<KeyValue=1>    | null...<KeyValue=3>                                | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      2 | 17/09/2022 06:31:57 AM CEST | explorer.exe             | ...<KeyValue=2>                  |  hello from intellij[Period]...<KeyValue=4>        | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      3 | 17/09/2022 06:31:58 AM CEST | SearchApp.exe            | Search...<KeyValue=3>            | null...<KeyValue=7>                                | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      4 | 17/09/2022 06:32:01 AM CEST | explorer.exe             | ...<KeyValue=4>                  | notepad[Enter]...<KeyValue=8>                      | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      5 | 17/09/2022 06:32:01 AM CEST | notepad.exe              | Untitled - Not...<KeyValue=5>    | null...<KeyValue=9>                                | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      6 | 17/09/2022 06:32:09 AM CEST | idea64.exe               | KeyLogger – Fi...<KeyValue=6>    | hello from notepad[Period]
+[Enter]...<KeyValue=10> | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      7 | 17/09/2022 06:32:10 AM CEST | msedge.exe               | New InPrivate ...<KeyValue=7>    | null...<KeyValue=11>                               | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
+      8 | 17/09/2022 06:32:15 AM CEST | idea64.exe               | KeyLogger – Fi...<KeyValue=8>    | hello from chriome[Period]...<KeyValue=12>         | Clipboard Items      |
+--------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
