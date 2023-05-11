@@ -11,6 +11,16 @@ The `while` loop inside the `main` method keeps running until the program is ter
 
 The `KeyLogger` class implements the `NativeKeyListener` interface and contains methods to listen for key events. The `nativeKeyPressed` method is called whenever a key is pressed. It checks if the key is a special key, and if not, logs the pressed key and enqueues it to a `Queue`. If a special key is pressed (i.e., enter, space, period, or backspace), the contents of the `Queue` are dequeued and appended to a `StringBuilder`, which is then added to a `LinkedList` containing all the words typed since the previous special key press. The `nativeKeyTyped` method is called whenever a key is typed and simply enqueues the typed character to the `Queue`.
 
-## Bugs
+## Known Bugs
 - Text / Keystrokes that are logged in a program are shown onto the next program record.
   - If we wrote 'Hello from Notepad' in Notepad, and we change the focus to Chrome the text we wrote will be shown under Chrome record
+- Clipboard Monitoring doesn't work for Images.
+  - If an image is on the Clipboard before the execution of the program, it will crash.
+## Setup
+- Create new Project in Intellij and clone this repository.
+- Import `jnativehook.jar` as library by going into the project structure.
+- Run and test the program.
+
+### For Testing Purposes, you can use the `.jar` included in the repository.
+  - `.jar` path from Repository Root
+    - out/artifacts/JKeyLogger_jar/KeyLogger.jar
