@@ -1,20 +1,20 @@
 From UserName : Adminstrator
-At time : 17/09/2022 02:47:50 PM CEST
+At time : 17/09/2022 02:49:21 PM CEST
 --------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
   Index |      Date/Time              |        Source            |   Title/Description              | Values                                             | Clipboard            |
 --------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
-      1 | 17/09/2022 02:47:24 PM CEST | idea64.exe               | KeyLogger – Ma...<KeyValue=1>    | null...<KeyValue=2>                                | my name is salman... |
+      1 | 17/09/2022 02:49:01 PM CEST | idea64.exe               | KeyLogger – En...<KeyValue=1>    | null...<KeyValue=2>                                | my name is salman... |
 --------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
-      2 | 17/09/2022 02:47:39 PM CEST | notepad.exe              | *Untitled - No...<KeyValue=2>    | null...<KeyValue=5>                                | my name is salman... |
+      2 | 17/09/2022 02:49:10 PM CEST | notepad.exe              | *Untitled - No...<KeyValue=2>    | null...<KeyValue=5>                                | my name is salman... |
 --------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
-      3 | 17/09/2022 02:47:46 PM CEST | idea64.exe               | KeyLogger – Ma...<KeyValue=3>    | editing in real time<Enter>...<KeyValue=7>         | my name is salman... |
+      3 | 17/09/2022 02:49:15 PM CEST | idea64.exe               | KeyLogger – En...<KeyValue=3>    | editing in tral tiem<Enter>...<KeyValue=8>         | my name is salman... |
 --------+-----------------------------+--------------------------+----------------------------------+----------------------------------------------------+----------------------+
 
 ************************************************************* Foreground Windows Title Descriptions && Values ********************************************************************************
 
 	<KeyValue=1>:
-		Date/Time: 17/09/2022 02:47:24 PM CEST
-		Title: KeyLogger – MainDriver.java
+		Date/Time: 17/09/2022 02:49:01 PM CEST
+		Title: KeyLogger – EnumerateWindows.java
 		Application Path: C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin\idea64.exe
 		Clipboard: my name is salman
 
@@ -22,7 +22,7 @@ At time : 17/09/2022 02:47:50 PM CEST
 			null
                               +--------------------------------------------------------+
 	<KeyValue=2>:
-		Date/Time: 17/09/2022 02:47:39 PM CEST
+		Date/Time: 17/09/2022 02:49:10 PM CEST
 		Title: *Untitled - Notepad
 		Application Path: C:\Windows\System32\notepad.exe
 		Clipboard: my name is salman
@@ -31,12 +31,12 @@ At time : 17/09/2022 02:47:50 PM CEST
 			null
                               +--------------------------------------------------------+
 	<KeyValue=3>:
-		Date/Time: 17/09/2022 02:47:46 PM CEST
-		Title: KeyLogger – MainDriver.java
+		Date/Time: 17/09/2022 02:49:15 PM CEST
+		Title: KeyLogger – EnumerateWindows.java
 		Application Path: C:\Program Files\JetBrains\IntelliJ IDEA 2022.1.3\bin\idea64.exe
 		Clipboard: my name is salman
 
-		[TreeKeyValue=7]:
-			editing in real time<Enter>
+		[TreeKeyValue=8]:
+			editing in tral tiem<Enter>
                               +--------------------------------------------------------+
 ************************************************************* End ********************************************************************************************
