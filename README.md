@@ -1,7 +1,8 @@
 # JKeylogger
 This Java-based keylogger utilizes `jnative hook` to capture keystrokes, and applies concepts learned in a Data Structures course to process the data. As Java files themselves runs inside the JVM they're unable to log keystrokes, `jnative hook` library provides a system-wide hook for capturing keystrokes. I formatted the captured keystrokes using Data Structures, such as combining keystrokes into words or phrases. For example, when the spacebar or special key is pressed, dequeue all the keystrokes to form a complete word. This ensures that the output is more readable and user-friendly.
 
-![Demo](https://github.com/Salman1057/JKeylogger/assets/72850566/87de7a8a-cf11-4c16-9c9e-8d05dd20cb78)
+![Demo](https://github.com/Salman1057/JKeylogger/assets/72850566/6cc99690-1e6e-4074-b1f7-e7daec946c1a)
+
 
 ## Implementation
 
